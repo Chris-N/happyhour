@@ -4,6 +4,7 @@
   "description": "Simple web app to allow user to enter location and happy hour details",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,6 +30,7 @@
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "nodemon": "^1.18.10",
     "webpack-dev-server": "^3.2.1"
   }
 }
