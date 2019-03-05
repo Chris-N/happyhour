@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Simple web app to allow user to enter location and happy hour details",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,17 +21,20 @@
   "homepage": "https://github.com/Chris-N/happyhour#readme",
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
+    "express": "^4.16.4",
     "pg": "^7.8.1",
     "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "webpack": "^4.29.6"
+    "react-dom": "^16.8.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
     "nodemon": "^1.18.10",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
   }
 }
