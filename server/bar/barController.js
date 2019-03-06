@@ -2,8 +2,13 @@ const Bar = require('./barModel');
 
 const barController = {};
 
-barController.getAllBars = () => {
-
+barController.getAllBars = (req, res, next) => {
+    const query = Bar.find();
+    query.exec((err, doc) => {
+        console.log(doc);
+        res.locals = doc;
+        next();
+    })
 }
 
 barController.createBar = (req, res, next) => {

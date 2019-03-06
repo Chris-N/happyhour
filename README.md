@@ -27,8 +27,5 @@ Data
 -images
 
 
-
-
-Memory?
 Happy hour? (B2B)
 
