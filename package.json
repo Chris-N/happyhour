@@ -5,8 +5,10 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=production nodemon server/server.js",
-    "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development webpack-dev-server --open 'Google Chrome' nodemon server/server.js",
+    "build": "NODE_ENV=production webpack --watch & nodemon server/server.js",
+    "buildProd": "NODE_ENV=production webpack",
+    "dev": "NODE_ENV=development webpack-dev-server --open 'Google Chrome' | nodemon server/server.js",
+    "webdev": "NODE_ENV=development webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +25,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "express": "^4.16.4",
+    "mongoose": "^5.4.17",
     "pg": "^7.8.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3"
