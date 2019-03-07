@@ -10,9 +10,10 @@ module.exports =  {
     devServer: {
         publicPath: '/build/',
         contentBase: './client',
-        proxy: {
-            '/bars': 'http://localhost:3000'
-        }
+        proxy: [{
+            context: ['/bars', '/yelp'],
+            target: 'http://localhost:3000'
+        }]
     },
     module: {
         rules: [{
@@ -24,6 +25,10 @@ module.exports =  {
                     presets: ['@babel/preset-env', '@babel/preset-react']
                 }
             }
+        },
+        {
+            test:/\.css$/,
+            use: ['style-loader', 'css-loader'],
         }]
     }
 };

@@ -1,13 +1,13 @@
 import React from 'react';
 import Welcome from './Welcome.jsx';
-// import MainContainer from '../containers/MainContainer.jsx'
+import MainContainer from '../containers/MainContainer.jsx'
 import BarContainer from '../containers/BarContainer.jsx';
 
 function App(){
     return(
-        <div>
+        <div className="container">
             <Welcome name="Christian N" />
-            {/* <MainContainer /> */}
+            <MainContainer />
             <BarContainer />
         </div>
     );

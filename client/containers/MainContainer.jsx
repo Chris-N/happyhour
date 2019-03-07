@@ -9,11 +9,10 @@ class MainContainer extends Component {
     }
 
     render(){
-        <div>
-            <h1>Happy Hour</h1>
+        return (<div>
             <Find handleKeyDown={ this.props.handleKeyDown } 
                 handleOnClick={ this.props.handleOnClick } />
-        </div>
+        </div>);
     }
 }
 

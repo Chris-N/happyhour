@@ -3,10 +3,17 @@ const app = express();
 const path = require('path');
 const PORT = 3000;
 
+// Mongo DB
 const mongoose = require('mongoose');
 const PORT_DB = 27017
 mongoose.connect(`mongodb://localhost:${PORT_DB}/happyhour`, { useNewUrlParser: true });
 mongoose.connection.once('open', () => console.log(`Mongo DB is now connected on ${PORT_DB}`));
+
+// PostgreSQL
+const db = require( './db');
+db.pool.on('connect', (client) => console.log('Postgres is now connected on Elephant SQL'));
+
+
 
 const barController = require('./bar/barController');
 
@@ -19,8 +26,13 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 app.get('/bars',barController.getAllBars, (req, res, next) => {
-    console.log(res.locals);
     res.json(res.locals);
+})
+app.get('/yelp', (req, res, next) => {
+    db.pool.query('SELECT * FROM bars', (err, result) => {
+        console.log(result.rows);
+        res.json(result.rows);
+    })
 })
 
 app.listen(PORT, () => console.log(`Server is now listening on ${PORT}`));

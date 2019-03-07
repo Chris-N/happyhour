@@ -8,7 +8,7 @@ class BarContainer extends Component{
         super(props);
     }
     componentDidMount(){
-        console.log('Mounted now GET data');
+        // console.log('Mounted now GET data');
         const req = new Request('/bars', {method: 'GET'});
         fetch(req)
         .then(res => (res.json()))
@@ -30,7 +30,7 @@ class BarContainer extends Component{
             );
 
         return(
-            <div>
+            <div className="barContainer">
                 {arrBars}
             </div>
         )

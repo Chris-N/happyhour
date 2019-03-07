@@ -5,6 +5,7 @@ import { createStore } from 'redux';
 import rootReducer from './reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import App from './components/App.jsx';
+import css from './style.css';
 
 const store = createStore(rootReducer, composeWithDevTools());
 
