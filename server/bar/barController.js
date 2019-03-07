@@ -12,8 +12,12 @@ barController.getAllBars = (req, res, next) => {
 }
 
 barController.createBar = (req, res, next) => {
-    const bar = new Bar({name: 'Bounty HMS', location: 'Koreatown'});
-    bar.save();
+    const bar = new Bar({name: req.body.name, location: req.body.location});
+    bar.save((err, doc) => {
+        if(err) throw new Error(`BarController creating new instance error: ${err}`);
+
+        console.log(`Created new bar ${doc}`);
+    });
 }
 
 module.exports = barController;
