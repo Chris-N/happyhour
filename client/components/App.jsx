@@ -7,8 +7,8 @@ function App(){
     return(
         <div>
             <Welcome name="Christian N" />
-            <BarContainer />
             {/* <MainContainer /> */}
+            <BarContainer />
         </div>
     );
 }

@@ -15,8 +15,12 @@ const barsReducer = (state=initialState, action) => {
         case types.SEARCH_BARS: {
             // search bars from location field
         }
-        case types.GET_BARS: {
-            // get all bars related to payload
+        case types.SET_BARS: {
+            return {
+                ...state,
+                totalBars: action.payload.length,
+                list: action.payload
+            }
         }
         default:
             return state;

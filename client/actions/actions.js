@@ -12,3 +12,7 @@ export const getBars = () => ({
     type: types.GET_BARS,
     payload: ''
 })
+export const setBars = (data) => ({
+    type: types.SET_BARS,
+    payload: data
+})

@@ -8,8 +8,11 @@ module.exports =  {
         path: path.resolve(__dirname, 'build')
     },
     devServer: {
-        publicPath: '/build',
+        publicPath: '/build/',
         contentBase: './client',
+        proxy: {
+            '/bars': 'http://localhost:3000'
+        }
     },
     module: {
         rules: [{
