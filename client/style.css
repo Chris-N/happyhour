@@ -15,4 +15,11 @@
 .barContainer {
     border: 1px solid black;
     justify-content: center;
+    align-content: center;
+    flex-direction: column;
 }
+
+.create {
+    text-decoration: none;
+}
+

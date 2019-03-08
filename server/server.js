@@ -23,6 +23,9 @@ if(process.env.NODE_ENV === 'production'){
     app.get('/', (req, res) => {
         res.status(200).sendFile(path.join(__dirname + '/../client/index.html'));
     });
+    app.get('/', (req, res) => {
+        res.status(200).sendFile(path.join(__dirname + '/../client/create.html'));
+    });
 }
 
 app.get('/bars',barController.getAllBars, (req, res, next) => {
@@ -30,7 +33,7 @@ app.get('/bars',barController.getAllBars, (req, res, next) => {
 })
 app.get('/yelp', (req, res, next) => {
     db.pool.query('SELECT * FROM bars', (err, result) => {
-        console.log(result.rows);
+        // console.log(result.rows);
         res.json(result.rows);
     })
 })

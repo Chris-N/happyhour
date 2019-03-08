@@ -16,3 +16,19 @@ export const setBars = (data) => ({
     type: types.SET_BARS,
     payload: data
 })
+export const addBar = (data) => ({
+    type: types.ADD_BAR,
+    payload: data
+})
+export const toggleForm = () => ({
+    type: types.SHOW_FORM,
+    payload: ''
+})
+export const setName = (data) => ({
+    type: types.SET_NAME,
+    payload: data
+})
+export const setLocation = (data) => ({
+    type: types.SET_LOCATION,
+    payload: data
+})

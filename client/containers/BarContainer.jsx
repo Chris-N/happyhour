@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Bar from '../components/Bar.jsx';
+import BarForm from '../components/BarForm.jsx';
 import * as actions from '../actions/actions'
 
 class BarContainer extends Component{
@@ -21,6 +22,7 @@ class BarContainer extends Component{
     }
 
     render(){
+        console.log(this.props.list);
         const arrBars = [];
         for(let i = 0; i < this.props.list.length; i++)
             arrBars.push(
@@ -30,20 +32,41 @@ class BarContainer extends Component{
             );
 
         return(
-            <div className="barContainer">
-                {arrBars}
+            <div>
+                <button onClick={this.props.toggleForm}>Add Bar</button>
+                { this.props.formHidden ? <BarForm submitForm={this.props.submitForm} 
+                inputName={this.props.inputName} inputLocation={this.props.inputLocation}
+                name={this.props.formName} location={this.props.formLocation} /> : null } 
+                <div className="barContainer">
+                    {arrBars}
+                </div>
             </div>
         )
     }
 }
 
 const mapStateToProps = store => ({
-    list: store.bar.list
+    list: store.bar.list,
+    formName: store.bar.formName,
+    formLocation: store.bar.formLocation,
+    formHidden: store.bar.formHidden
 });
 
 const mapDispatchToProps = dispatch => ({
     dataToStore: data => {
         dispatch(actions.setBars(data));
+    },
+    toggleForm: e => {
+        dispatch(actions.toggleForm());
+    },
+    submitForm: e => {
+        dispatch(actions.addBar())
+    },
+    inputName: e => {
+        dispatch(actions.setName(e.target.value))
+    },
+    inputLocation: e => {
+        dispatch(actions.setLocation(e.target.value))
     }
 });
 
